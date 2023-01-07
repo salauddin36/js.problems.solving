@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Problems</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript - problems</h1><hr>
+    <p> 1. Reverse A String</p>
+    <p> 2. factorial</p>
+    <p> 3. fibonacci </p>
+    <p> 4. titleCard</p>
+    <p> 5. longest Word </p>
+    <p> 6. vowels - end</p>
+    <p> 7. remove duplicates from an array</p>
+    <p> 8. remove character from a string</p>
+    <br><hr>
+    <p>view console to see results </p>
+    <script>
+
+        
+    //   1. Reverse A String
+
+    function reverseAString( str ){
+    
+    console.log(str,"- reverse a string");
+
+    // solution - 1
+    const arr = str.split("");
+    const reversedArr = arr.reverse();
+    console.log( reversedArr.join("")  );           // olleh 
+
+    // solution - 2
+    const array = str.split("");
+    let result = "";
+
+    for( let i = 0; i < array.length ; i++){
+        result = array[i] + result;
+    }
+
+    return result;
+    }
+
+
+    console.log(reverseAString("hello"));
+
+    //   1. Reverse A String -- end .
+
+
+    //  2. factorial
+
+    function factorial(num){
+        if( num < 1) return 1;
+
+        let result = 1 ;
+        for( let i = 1; i <= num; i++ ){
+            result = result * i;
+        }
+        return result;
+    }
+
+    console.log("factorial of 5 = " + factorial(5));
+    console.log(factorial(4));
+
+    //  2. factorial --  end
+
+    // 3. fibonacci 
+    //   fibonacci series --  0,1,1,2,3,5,8,13,21,34,55.....
+    //   fibonacci of numbers from 1  -- 1,2,3,5,8,13,21,34,55.....
+
+    function fibonacci(num){
+
+    let firstNum = 0 ;
+    let secondNum = 1 ;
+    let sum ;
+
+    for( let i = 0; i < num; i++){
+        sum = firstNum + secondNum;
+        firstNum = secondNum;
+        secondNum = sum;
+    }
+
+    return sum
+
+    }
+
+    console.log("fibonacci of 5 =" , fibonacci(5));
+    console.log(fibonacci(6));
+
+    // 3. fibonacci -- end
+
+    // 4. titleCard
+
+    function titleCard(sentence){
+
+    let arr = sentence.split(" ");
+    console.log(sentence , "- title card");
+
+    const resultArr = [];
+    arr.forEach( word => {
+    let firstLetter = word.charAt(0);
+    let result = firstLetter.toUpperCase() + word.slice(1).toLowerCase() ; 
+
+    resultArr.push(result);
+    })
+
+    return resultArr.join(" ")
+    }
+
+    console.log(titleCard("My naME IS SALAUDDIN AYUBI"));
+
+    // 4. titleCard  --  end
+
+    //  5. longest Word 
+
+    function longestWord(sentence){
+
+    const arr = sentence.split(" ")
+    console.log(arr.join(" "));
+
+    let longestWord = '';
+    arr.forEach( word => {
+        if( word.length > longestWord.length){
+            longestWord = word;
+        }
+    })
+
+    return longestWord;
+
+    }
+    console.log(longestWord("my name is salauddin ayubi - longest word"));
+    //  5. longest Word  --  end 
+
+    // 6. vowels
+
+    function vowelsInAString(str){
+
+        let vowels = "aeiou";
+        const vowelsInAString = [];
+
+        str.split("").forEach(letter => {
+            if(vowels.includes(letter)){
+                vowelsInAString.push(letter)
+            }
+        })
+
+        function removeDuplicate(arr){
+            let filteredArr = [];
+
+            arr.forEach(num => {
+                if(!filteredArr.includes(num)){
+                    filteredArr.push(num)
+                }
+            })
+            return filteredArr;
+        }
+
+        let result = removeDuplicate(vowelsInAString) 
+        return result.length;
+    }
+
+    console.log(vowelsInAString("salauddin"));
+
+    // 6. vowels - end
+
+
+    // 7. remove duplicates from an array
+
+    function removeDuplicate(arr){
+
+    let filteredArr = [];
+    
+    arr.forEach(num => {
+        if(!filteredArr.includes(num)){
+            filteredArr.push(num);
+        }
+    })
+    console.log(arr);
+    return filteredArr;
+    }
+
+    console.log(removeDuplicate([1,2,1,2,3,2,4,3,5]));
+
+    // 7. remove duplicates from an array -- end
+
+    // 8. remove character from a string
+
+    function removeCharFromString(str , key ){
+
+    // indexOf - returns position of the letter
+        console.log(str);
+    if(str.indexOf == -1 ){
+        return str;
+    }
+
+    let result = str.split("").filter(letter => letter != key)
+    return result.join("")
+    }
+
+    console.log(removeCharFromString("happynewyear" , "e"));
+    // 8. remove character from a string - end
+    </script>
+</body>
+</html>
